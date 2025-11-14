@@ -33,10 +33,10 @@ This framework is particularly valuable when group boundaries are theoretically 
 
 ### Key Questions Brokerage Answers
 
-1. **Who** are the brokers in this network?
-2. **What types** of brokerage roles do they play?
-3. **Which groups** do they connect?
-4. **How** is information or resources flowing across group boundaries?
+1. Who are the brokers in this network?
+2. What types of brokerage roles do they play?
+3. Which groups do they connect?
+4. How is information or resources flowing across group boundaries?
 
 ---
 
@@ -44,48 +44,44 @@ This framework is particularly valuable when group boundaries are theoretically 
 
 ### Simmel's Triadic Theory (1950)
 
-Georg Simmel identified the **triad** (three-person group) as the fundamental unit for understanding mediation:
-
-> "The sociological structure of the dyad is characterized by the fact that either element can only confront the other, not a plurality. In the triad, however, each element can confront the other two."
-
-**Key insight:** The third position in a triad creates unique social dynamics:
-- **Tertius gaudens** ("the third who benefits"): The broker profits from mediating between two parties
-- **Divide et impera** ("divide and rule"): The broker maintains power by keeping the other two separated
-- **Mediation and arbitration**: The broker resolves conflicts between parties
+The third position in a triad creates unique social dynamics:
+- Tertius gaudens ("the third who benefits"): The broker profits from mediating between two parties
+- Divide et impera ("divide and rule"): The broker maintains power by keeping the other two separated
+- Mediation and arbitration: The broker resolves conflicts between parties
 
 ### Burt's Structural Holes (1992)
 
 Ronald Burt extended Simmel's ideas to network analysis:
 
 **Structural holes** are gaps in social structure where two disconnected actors could benefit from connection. Actors who span these holes enjoy:
-- **Information benefits**: Access to diverse, non-redundant information
-- **Control benefits**: Ability to broker connections and extract value
-- **Timing advantages**: Early awareness of opportunities
+- Information benefits: Access to diverse, non-redundant information
+- Control benefits: Ability to broker connections and extract value
+- Timing advantages: Early awareness of opportunities
 
 **Network constraint** measures the *lack* of structural holes. High constraint means:
 - Contacts are highly interconnected
 - Ego has few alternative sources
 - Limited brokerage opportunities
 
-**Limitation:** Constraint is a continuous measure that doesn't distinguish between *types* of brokerage based on social categories.
+Limitation: Constraint is a continuous measure that doesn't distinguish between *types* of brokerage based on social categories.
 
 ### Gould & Fernandez's Group-Based Brokerage (1989)
 
 Gould and Fernandez formalized brokerage analysis by incorporating group membership:
 
-**Core insight:** Not all brokerage is equivalent. The *meaning* of mediation depends on the **group affiliations** of the three actors in the triad.
+Not all brokerage is equivalent. The *meaning* of mediation depends on the **group affiliations** of the three actors in the triad.
 
 **Formal definition:** Node *ego* brokers a relationship between *i* and *j* if:
-1. There is a path *i → ego → j*
-2. There is **no direct edge** *i → j*
-3. *i*, *ego*, and *j* are **distinct nodes**
+1. There is a path $i → ego → j$
+2. There is no direct edge *i → j*
+3. $i$ (the *ego*) and $j$ are distinct nodes
 
-The **brokerage role** is determined by the group membership pattern:
+The brokerage role is determined by the group membership pattern:
 - g(i): Group of node i
 - g(ego): Group of ego (the broker)
 - g(j): Group of node j
 
-This yields **five distinct roles** (see next section).
+This yields five distinct roles (see next section).
 
 **Theoretical significance:**
 - Integrates network structure with social categories
@@ -248,15 +244,15 @@ This yields **five distinct roles** (see next section).
 
 | Aspect | Constraint | Brokerage |
 |--------|-----------|-----------|
-| **Focus** | Structural holes (gaps) | Mediation roles |
-| **Groups** | Not considered | Central to analysis |
-| **Output** | Continuous score | Role counts |
-| **Direction** | Symmetrized | Directional (i→ego→j) |
-| **Question** | "How constrained is ego?" | "What brokerage roles does ego play?" |
+| Focus | Structural holes (gaps) | Mediation roles |
+| Groups | Not considered | Central to analysis |
+| Output | Continuous score | Role counts |
+| Direction | Symmetrized | Directional (i→ego→j) |
+| Question | "How constrained is ego?" | "What brokerage roles does ego play?" |
 
 **Expected correlation:**
-- **Negative correlation overall**: Low constraint often means more brokerage opportunities
-- **Not perfectly correlated**:
+- Negative correlation overall: Low constraint often means more brokerage opportunities
+- Not perfectly correlated:
   - Node can have low constraint but low brokerage (isolated in sparse network)
   - Node can have moderate constraint but high coordinator role (central within dense group)
 
@@ -264,15 +260,15 @@ This yields **five distinct roles** (see next section).
 
 | Constraint | Total Brokerage | Interpretation |
 |------------|----------------|----------------|
-| Low | High | **Powerful broker**: Spans holes, mediates actively |
-| Low | Low | **Isolate or peripheral**: Few connections overall |
-| High | High | **Embedded broker**: Highly connected, coordinates within group |
-| High | Low | **Trapped insider**: Redundant connections, no mediation |
+| Low | High | Powerful broker: Spans holes, mediates actively |
+| Low | Low | Isolate or peripheral: Few connections overall |
+| High | High | Embedded broker: Highly connected, coordinates within group |
+| High | Low | Trapped insider: Redundant connections, no mediation |
 
 **When to use which:**
-- **Constraint alone**: When groups are not theoretically meaningful
-- **Brokerage alone**: When group boundaries are primary theoretical focus
-- **Both together**: Most complete picture of network position
+- Constraint alone: When groups are not theoretically meaningful
+- Brokerage alone: When group boundaries are primary theoretical focus
+- Both together: Most complete picture of network position
 
 ### Brokerage vs. Betweenness Centrality
 
@@ -289,26 +285,6 @@ This yields **five distinct roles** (see next section).
 - You want role typology (not just "how much" but "what kind")
 - Directed information flow is meaningful
 - Shorter paths (triads) are more relevant than long paths
-
-### Brokerage and Modularity
-
-**Modularity (Q):** Measures how well a partition divides a network into communities.
-
-**Relationship to brokerage:**
-- **High Q**: Strong group separation → brokerage analysis is meaningful
-- **Low Q**: Weak group separation → reconsider group definitions
-- **Use modularity to validate groups** before brokerage analysis
-
-**Interpretation:**
-
-| Modularity Q | Group Structure | Brokerage Validity |
-|--------------|-----------------|-------------------|
-| Q > 0.3 | Strong communities | High - proceed with confidence |
-| 0.1 < Q < 0.3 | Moderate separation | Cautious - check robustness |
-| Q ≈ 0 | No community structure | Low - reconsider groups |
-| Q < 0 | Anti-modular (more between than within) | Invalid - wrong partition |
-
-**Best practice:** Always report modularity when using brokerage analysis in research.
 
 ---
 
@@ -633,7 +609,7 @@ NetworkBrokerage.jl's implementation follows the R `sna` package (standard refer
 
 | Version | Date | Changes |
 |---------|------|---------|
-| 1.0 | 2025-01-14 | Initial theoretical documentation |
+| 1.0 | 2025-11-14 | Initial theoretical documentation |
 
 ---
 
