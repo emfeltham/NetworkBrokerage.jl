@@ -1,7 +1,7 @@
 using Test
 using Graphs
 using SimpleWeightedGraphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Mode Parameter Tests" begin
     @testset "Mode validation" begin
@@ -35,11 +35,11 @@ using NetworkConstraint
         add_edge!(g, 3, 1)  # 3→1 (incoming to 1)
 
         # With :out mode, node 1 has only one out-neighbor (node 2)
-        inv_1_2_out = NetworkConstraint.investment(g, 1, 2; mode=:out)
+        inv_1_2_out = NetworkBrokerage.investment(g, 1, 2; mode=:out)
         @test inv_1_2_out ≈ 1.0 atol=1e-10  # All outgoing investment to node 2
 
         # Node 3 not counted as neighbor in :out mode
-        inv_1_3_out = NetworkConstraint.investment(g, 1, 3; mode=:out)
+        inv_1_3_out = NetworkBrokerage.investment(g, 1, 3; mode=:out)
         @test inv_1_3_out == 0.0  # No outgoing edge to 3
 
         # Constraint based only on out-neighbors
@@ -53,11 +53,11 @@ using NetworkConstraint
         add_edge!(g, 3, 1)  # 3→1 (incoming to 1)
 
         # With :in mode, node 1 has only one in-neighbor (node 3)
-        inv_1_3_in = NetworkConstraint.investment(g, 1, 3; mode=:in)
+        inv_1_3_in = NetworkBrokerage.investment(g, 1, 3; mode=:in)
         @test inv_1_3_in ≈ 1.0 atol=1e-10  # All incoming investment from node 3
 
         # Node 2 not counted in :in mode
-        inv_1_2_in = NetworkConstraint.investment(g, 1, 2; mode=:in)
+        inv_1_2_in = NetworkBrokerage.investment(g, 1, 2; mode=:in)
         @test inv_1_2_in == 0.0  # No incoming edge from 2
 
         # Constraint based only on in-neighbors
@@ -91,15 +91,15 @@ using NetworkConstraint
         add_edge!(g, 1, 3, 1.0)
 
         # :both mode - symmetrization
-        inv_both = NetworkConstraint.investment(g, 1, 2; mode=:both)
+        inv_both = NetworkBrokerage.investment(g, 1, 2; mode=:both)
         @test inv_both ≈ 2.0/3.0 atol=1e-10
 
         # :out mode - only outgoing weights
-        inv_out = NetworkConstraint.investment(g, 1, 2; mode=:out)
+        inv_out = NetworkBrokerage.investment(g, 1, 2; mode=:out)
         @test inv_out ≈ 2.0/3.0 atol=1e-10  # 2.0/(2.0+1.0)
 
         # :in mode - no incoming edges
-        inv_in = NetworkConstraint.investment(g, 1, 2; mode=:in)
+        inv_in = NetworkBrokerage.investment(g, 1, 2; mode=:in)
         @test inv_in == 0.0  # No incoming edges to node 1
     end
 
@@ -204,8 +204,8 @@ using NetworkConstraint
         add_edge!(g, 2, 3)
 
         # Test that investment_sum respects mode
-        inv_sum_both = NetworkConstraint.investment_sum(g, 1, 3; mode=:both)
-        inv_sum_out = NetworkConstraint.investment_sum(g, 1, 3; mode=:out)
+        inv_sum_both = NetworkBrokerage.investment_sum(g, 1, 3; mode=:both)
+        inv_sum_out = NetworkBrokerage.investment_sum(g, 1, 3; mode=:out)
 
         @test inv_sum_both >= 0.0
         @test inv_sum_out >= 0.0

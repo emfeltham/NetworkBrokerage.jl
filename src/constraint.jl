@@ -65,7 +65,7 @@ See `docs/directed_graphs_theory.md` for detailed theoretical guidance on choosi
 
 ## Examples
 ```julia
-using Graphs, NetworkConstraint
+using Graphs, NetworkBrokerage
 
 # Undirected graph
 g = Graph(5)
@@ -161,7 +161,7 @@ See `docs/directed_graphs_theory.md` for theoretical implications and mode selec
 
 ## Examples
 ```julia
-using Graphs, NetworkConstraint
+using Graphs, NetworkBrokerage
 
 # Undirected graph
 g = Graph(3)

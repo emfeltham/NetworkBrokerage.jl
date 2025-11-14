@@ -1,7 +1,7 @@
 using Test
 using Graphs
 using SimpleWeightedGraphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Self-Loop Handling Tests" begin
     @testset "Self-loops excluded from constraint" begin
@@ -93,11 +93,11 @@ using NetworkConstraint
         add_edge!(g, 2, 3)
 
         # Investment to self should be 0
-        inv_self = NetworkConstraint.investment(g, 1, 1)
+        inv_self = NetworkBrokerage.investment(g, 1, 1)
         @test inv_self == 0.0
 
         # Investment to others should not be affected by self-loop
-        inv_2 = NetworkConstraint.investment(g, 1, 2)
+        inv_2 = NetworkBrokerage.investment(g, 1, 2)
         @test inv_2 ≈ 1.0 atol=1e-10  # All investment to node 2
     end
 

@@ -1,6 +1,6 @@
 using Test
 using Graphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Dyadic Constraint Tests" begin
     @testset "Basic dyadic constraint" begin

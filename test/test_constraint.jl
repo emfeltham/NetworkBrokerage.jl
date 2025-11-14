@@ -1,10 +1,11 @@
 using Test
 using Graphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Constraint Tests" begin
     @testset "Basic constraint calculations" begin
-        # Star graph: center node has high constraint, peripheral nodes have low
+        # Star graph: center node has LOW constraint (structural holes),
+        # peripheral nodes have HIGH constraint (degree=1, no alternatives)
         g = star_graph(5)
 
         # Center node (1) should have lower constraint than peripheral nodes

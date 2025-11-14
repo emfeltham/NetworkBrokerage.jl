@@ -1,6 +1,6 @@
 using Test
 using Graphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Directed Graph Tests" begin
     @testset "Simple directed graph investment" begin
@@ -11,8 +11,8 @@ using NetworkConstraint
         add_edge!(g, 3, 1)
 
         # Node 1 has outgoing edge to 2, incoming from 3
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-        inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+        inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
         @test inv_1_2 isa Float64
         @test inv_1_3 isa Float64
@@ -25,8 +25,8 @@ using NetworkConstraint
         add_edge!(g, 1, 2)
         add_edge!(g, 1, 3)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-        inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+        inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
         @test inv_1_2 ≈ 0.5 atol=1e-10
         @test inv_1_3 ≈ 0.5 atol=1e-10
@@ -38,7 +38,7 @@ using NetworkConstraint
         add_edge!(g, 1, 2)
         add_edge!(g, 2, 1)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
         @test inv_1_2 ≈ 1.0 atol=1e-10  # All investment goes to node 2
     end
 
@@ -60,8 +60,8 @@ using NetworkConstraint
         add_edge!(g, 1, 2)
         add_edge!(g, 3, 1)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-        inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+        inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
         @test inv_1_2 + inv_1_3 ≈ 1.0 atol=1e-10
     end

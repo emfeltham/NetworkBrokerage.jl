@@ -1,7 +1,7 @@
 using Test
 using Graphs
 using SimpleWeightedGraphs
-using NetworkConstraint
+using NetworkBrokerage
 
 @testset "Directed Weighted Graph Tests" begin
     @testset "Weighted directed investment" begin
@@ -9,8 +9,8 @@ using NetworkConstraint
         add_edge!(g, 1, 2, 2.0)
         add_edge!(g, 1, 3, 1.0)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-        inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+        inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
         @test inv_1_2 ≈ 2.0/3.0 atol=1e-10
         @test inv_1_3 ≈ 1.0/3.0 atol=1e-10
@@ -21,7 +21,7 @@ using NetworkConstraint
         add_edge!(g, 1, 2, 3.0)
         add_edge!(g, 2, 1, 1.0)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
         # Total weight = 3.0 + 1.0 = 4.0
         @test inv_1_2 ≈ 1.0 atol=1e-10
     end
@@ -42,7 +42,7 @@ using NetworkConstraint
         add_edge!(g, 1, 2, 2.0)
         add_edge!(g, 2, 1, 3.0)
 
-        inv_1_2 = NetworkConstraint.investment(g, 1, 2)
+        inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
         # Investment: (2.0 + 3.0) / (2.0 + 3.0) = 1.0
         @test inv_1_2 ≈ 1.0 atol=1e-10
 
@@ -107,7 +107,7 @@ using NetworkConstraint
         add_edge!(g, 2, 3, 1.5)
 
         # Test investment sum function
-        inv_sum = NetworkConstraint.investment_sum(g, 1, 3)
+        inv_sum = NetworkBrokerage.investment_sum(g, 1, 3)
         @test inv_sum isa Float64
         @test inv_sum >= 0.0
     end

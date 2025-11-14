@@ -1,14 +1,14 @@
-# Examples: Directed Graph Support in NetworkConstraint.jl
+# Examples: Directed Graph Support in NetworkBrokerage.jl
 #
-# This file demonstrates how to use NetworkConstraint.jl with directed graphs
+# This file demonstrates how to use NetworkBrokerage.jl with directed graphs
 # and illustrates the symmetrization approach used in the implementation.
 
-using NetworkConstraint
+using NetworkBrokerage
 using Graphs
 using SimpleWeightedGraphs
 
 println("=" ^ 70)
-println("NetworkConstraint.jl - Directed Graph Examples")
+println("NetworkBrokerage.jl - Directed Graph Examples")
 println("=" ^ 70)
 println()
 
@@ -75,8 +75,8 @@ println("    1→2 (non-reciprocal)")
 println("    1↔3 (reciprocal)")
 println()
 
-inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
 println("  Investment from node 1:")
 println("    to node 2: $(round(inv_1_2, digits=4))")
@@ -136,8 +136,8 @@ add_edge!(g, 1, 2, 2.0)  # Strong tie 1→2
 add_edge!(g, 1, 3, 1.0)  # Weak tie 1→3
 add_edge!(g, 2, 3, 1.5)  # Medium tie 2→3
 
-inv_1_2 = NetworkConstraint.investment(g, 1, 2)
-inv_1_3 = NetworkConstraint.investment(g, 1, 3)
+inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
+inv_1_3 = NetworkBrokerage.investment(g, 1, 3)
 
 println("  Edge weights:")
 println("    1→2: 2.0 (strong)")
@@ -172,7 +172,7 @@ println("    1→2: 3.0 (strong outgoing)")
 println("    2→1: 1.0 (weak incoming)")
 println()
 
-inv_1_2 = NetworkConstraint.investment(g, 1, 2)
+inv_1_2 = NetworkBrokerage.investment(g, 1, 2)
 println("  Investment from 1 to 2: $(round(inv_1_2, digits=4))")
 println("  (combines both directions: (3.0 + 1.0) / (3.0 + 1.0) = 1.0)")
 println()
