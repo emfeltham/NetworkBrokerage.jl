@@ -10,10 +10,10 @@ SimpleWeightedGraphs = "47aef6b3-ad0c-573a-a1e2-d07658019622"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
-CategoricalArrays = "1.0.2"
-Graphs = "1.13.1"
-SimpleWeightedGraphs = "1.5.0"
-Test = "1.11.0"
+CategoricalArrays = "1"
+Graphs = "1"
+SimpleWeightedGraphs = "1"
+julia = "1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
