@@ -27,7 +27,7 @@ Brokerage analysis identifies nodes that mediate connections between other actor
 
 The Gould-Fernandez (1989) approach provides a formal typology of five brokerage roles, distinguishing between:
 - **Within-group brokerage** (Coordinator)
-- **Cross-group brokerage** with different positionalities (Gatekeeper, Representative, Liaison, Cosmopolitan)
+- **Cross-group brokerage** with different positions (Gatekeeper, Representative, Liaison, Cosmopolitan)
 
 This framework is particularly valuable when group boundaries are theoretically important—such as organizational departments, social factions, ethnic communities, or professional disciplines.
 
