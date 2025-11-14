@@ -1,13 +1,5 @@
 # Gould-Fernandez Brokerage: Theoretical Foundation
 
-**Version:** 1.1
-**Date:** 2025-11-14
-**Package:** NetworkBrokerage.jl
-
-**Update Note:** Modularity integration has been removed from the brokerage implementation. The sections on modularity validation remain for reference but are no longer part of the package API. Users interested in assessing group structure should calculate modularity separately using `Graphs.modularity()`.
-
----
-
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -590,18 +582,35 @@ where:
 
 NetworkBrokerage.jl's implementation follows the R `sna` package (standard reference implementation):
 
-**Consistent with sna:**
-- Five-role typology definitions
+**Mathematically Consistent with sna:**
+- Five-role typology patterns (group membership conditions)
 - Triad counting algorithm
 - Directed edge interpretation (checks only i→j, not j→i)
 - Undirected graph handling (division by 2)
 
-**Differences from sna:**
+**Naming Differences:**
+
+While the mathematical patterns are identical, NetworkBrokerage.jl uses different names for two roles:
+
+| Pattern | R sna Package | NetworkBrokerage.jl |
+|---------|---------------|---------------------|
+| g(ego) = g(i) = g(j) | Coordinator (w_I) | Coordinator (w_I) |
+| g(ego) = g(j) ≠ g(i) | Gatekeeper (b_OI) | Gatekeeper (w_O in) |
+| g(ego) = g(i) ≠ g(j) | Representative (b_IO) | Representative (w_O out) |
+| **g(i) = g(j) ≠ g(ego)** | **Itinerant Broker (w_O)** | **Liaison (w_L)** |
+| **All groups distinct** | **Liaison (b_O)** | **Cosmopolitan (b)** |
+
+**Rationale for naming:**
+- "Liaison" better describes the role of connecting members of another group as an outsider
+- "Cosmopolitan" emphasizes the boundary-spanning nature across multiple groups
+- This naming is more intuitive for researchers and aligns with common usage in organizational network literature
+
+**Other Differences from sna:**
 - NetworkBrokerage.jl uses Graphs.jl ecosystem
 - Modularity integration for group validation (not in sna)
 - Type-generic groups (strings, symbols, etc.)
 
-**Validation:** Unit tests verify consistency with sna package results on standard examples.
+**Validation:** Unit tests verify numerical consistency with sna package results on standard examples (identical counts for each role pattern).
 
 ---
 

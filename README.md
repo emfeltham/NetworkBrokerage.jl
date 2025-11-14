@@ -367,6 +367,11 @@ end
 - **Directed edges:** For path `i → ego → j`, only checks if edge `i → j` exists (not `j → i`)
 - **Complexity:** O(n · d²) where n = nodes, d = average degree
 - **Performance:** Handles networks up to ~10,000 nodes efficiently
+- **R sna compatibility:** This implementation is mathematically consistent with R's `sna::brokerage()` function, but uses different names for two roles:
+  - What R calls "Itinerant Broker (w_O)" is called "Liaison" here
+  - What R calls "Liaison (b_O)" is called "Cosmopolitan" here
+  - The mathematical patterns and counts are identical; only the naming differs
+  - See [`docs/brokerage_theory.md`](docs/brokerage_theory.md) for detailed comparison
 
 ### Accessor Functions
 

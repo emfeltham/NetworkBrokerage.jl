@@ -289,12 +289,12 @@ Without explicit reporting:
 
 | Measure | Symmetrization | Direction Handling | Best For | Status |
 |---------|---------------|-------------------|----------|--------|
-| **Standard Constraint** | Yes (a_ij + a_ji) | Treats as mutual | Bidirectional relationships | ✅ Implemented |
+| **Standard Constraint** | Yes (a_ij + a_ji) | Treats as mutual | Bidirectional relationships | Implemented |
 | **Effective Size** | No | Can use out-edges only | Simple non-redundancy count | ⏳ Future (v0.3.0) |
 | **Out-Constraint** | No | Out-edges only | Ego's choices/investments | ⏳ Future (v0.3.0+) |
 | **In-Constraint** | No | In-edges only | Others' attention to ego | ⏳ Future (v0.3.0+) |
-| **Separate In/Out** | No | Both separately | Exploratory directional analysis | ⚠️ Manual |
-| **Weighted Reciprocity** | Partial | Reciprocated vs. not | Reciprocity patterns | ⚠️ Manual |
+| **Separate In/Out** | No | Both separately | Exploratory directional analysis | Manual |
+| **Weighted Reciprocity** | Partial | Reciprocated vs. not | Reciprocity patterns | Manual |
 
 **Key insight from research**: Borgatti (1997) found effective size correlates r=0.98 with simple degree, suggesting constraint may be capturing network size more than structural holes. This raises questions about whether the complexity of constraint calculations is justified, especially for directed networks where implementation choices multiply.
 
