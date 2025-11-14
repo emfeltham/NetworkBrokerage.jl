@@ -1,0 +1,20 @@
+name = "NetworkConstraint"
+uuid = "a35d99d8-c040-4601-9303-2c259ca69114"
+version = "0.1.0"
+authors = ["Eric Martin Feltham <eric.feltham@aya.yale.edu>"]
+
+[deps]
+Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
+SimpleWeightedGraphs = "47aef6b3-ad0c-573a-a1e2-d07658019622"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+Graphs = "1.13.1"
+SimpleWeightedGraphs = "1.5.0"
+Test = "1.11.0"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
